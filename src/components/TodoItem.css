@@ -1,0 +1,31 @@
+.TodoItem {
+    margin-left: auto;
+    margin-right: auto;
+    /* border-radius: 5px; */
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+.content {
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+/* svg는 우리가 가져온 체크박스 아이템  */
+.content svg {
+    font-size: 1.5rem;
+}
+.content .text {
+    margin-left: 0.5rem;
+    flex: 1;
+}
+.content.checked .text {
+    color: rgb(94, 93, 93);
+    text-decoration: line-through;
+    cursor: pointer;
+    opacity: 0.6;
+}

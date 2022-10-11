@@ -1,0 +1,13 @@
+* {
+  background: #C9D4D6;
+}
+.plusbutton {
+  position: fixed;
+  right: -5px;
+  bottom: 0;
+  z-index: 100;
+  width: 100px;
+  height: 100px;
+  cursor:pointer;
+  color: rgb(169, 40, 212);
+}
