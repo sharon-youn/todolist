@@ -23,7 +23,7 @@ form {
     width: 300px;
     height: 150px;
     border-radius: 5px;
-    box-shadow: 1px 2px 5px 1px pink;
+    box-shadow: 1px 2px 5px 1px black;
     background: white;
 }
 form > input {
@@ -49,4 +49,29 @@ form > button {
     cursor: pointer;
     /* 플러스버튼을 누르면 조금 멈췄다가 자연스럽게 사라짐  */
     transition: 0.1s background ease-in;
+}
+/* svg는 아이콘을 다 지칭함  */
+.rewrite > svg {
+    padding-top: 20px;
+    color: green;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.1rem;
+}
+
+.update, .delete{
+    border: none;
+    background-color: pink;
+    width: 80px;
+    height: 35px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-size: 1rem;
+  
+   
+}
+
+.delete {
+    background-color: rgb(193, 188, 188);
+    margin-left: 40px;
 }

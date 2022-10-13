@@ -12,25 +12,29 @@ let nextId = 4;
 
 // id로 key값 주고 text에 입력값 checked 완료 미완료 
 const App = () => {
+  const [selectedTodo, setSelectedTodo] = useState(null)
   const [insertToggle, setInsertToggle] = useState(false)
   const [todos, setTodos] = useState([
     {
       id:1,
-      text: "할일 쓰기 1 ",
+      text: "할일 추가!",
       checked: true
     },
     {
       id:2,
-      text: "할일 쓰기 2",
+      text: "수정, 삭제 기능도 있어요.",
       checked: false
     }, {
       id:3,
-      text: "할일 쓰기 3",
+      text: "할일을 다했으면 체크박스를 눌러보세요.",
       checked: true
     },
   ])
 
   const onInsertToggle = () => {
+    if(selectedTodo) {
+      setSelectedTodo(null);
+    }
     setInsertToggle(prev => !prev)
   }
 
@@ -57,15 +61,43 @@ const App = () => {
     // 만약 같지 않다면 그냥 todo를 반환해준다. 
     setTodos(todos => todos.map(todo => (todo.id === id ? {...todo, checked: !todo.checked} : todo)))
   }
+
+  const onChangeSelectedTodo = (todo) => {
+    setSelectedTodo(todo)
+  }
+ const onRemove = id => {
+  onInsertToggle();
+  setTodos(todos => todos.filter(todo => todo.id !== id))
+ }
+const onUpdate = (id, text) => {
+  onInsertToggle();
+  setTodos(todos => todos.map(
+    todo => 
+    todo.id === id ?  // 만약 todo.id와 id가 일치한다면
+    {...todo, text}  // spread 연산자로 todo 객체의 모든 속성을 풀어주고 새로운 text 추가해서 다시 객체 안에 넣기
+    : todo)) // 일치하지 않는 할일들은 그냥 냅두기
+}
+
   return  (
   <Template todoLength={todos.length}>
-    <TodoList todos={todos} onCheckToggle={onCheckToggle}/>
+    <TodoList 
+    todos={todos} 
+    onCheckToggle={onCheckToggle} 
+    onInsertToggle={onInsertToggle}
+    onChangeSelectedTodo={onChangeSelectedTodo} />
     <div className='plusbutton' onClick={onInsertToggle}>
     <FontAwesomeIcon icon={faCirclePlus} size="3x" />
     </div>
-   { insertToggle && <TodoInsert 
+
+   { insertToggle && 
+   (<TodoInsert 
     onInsertToggle={onInsertToggle} 
-    onInsertTodo={onInsertTodo}/>}
+    onInsertTodo={onInsertTodo}
+    selectedTodo={selectedTodo}
+    onRemove={onRemove}
+    onUpdate={onUpdate}
+    />)}
+
     </Template>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import {GrCheckboxSelected,GrCheckbox} from 'react-icons/gr'
 import './TodoItem.css'
 
-export default function TodoItem({todo, onCheckToggle}) {
+export default function TodoItem({todo, onCheckToggle, onInsertToggle, onChangeSelectedTodo}) {
     const {id, text, checked} = todo;
   return (
     <div className='TodoItem'>
@@ -15,10 +15,14 @@ export default function TodoItem({todo, onCheckToggle}) {
           () => {onCheckToggle(id)}
         }
         /> : <GrCheckbox
+        className='checkbox'
         onClick={
           () => {onCheckToggle(id)}
         }/>}
-        <div className='text'>{text}</div>
+        <div className='text' onClick={()=>{
+          onChangeSelectedTodo(todo)
+          onInsertToggle()
+        }}>{text}</div>
         </div>
     </div>
   )

@@ -3,9 +3,9 @@
     margin-right: auto;
     /* border-radius: 5px; */
     border-bottom: solid 1px black;
-    border-top: solid 1px black;
+    /* border-top: solid 1px black; */
 
-    padding: 1rem;
+    padding: 0.7rem;
     display: flex;
     align-items: center;
 }
@@ -18,9 +18,10 @@
 /* svg는 우리가 가져온 체크박스 아이템  */
 .content svg {
     font-size: 1.5rem;
+    color: red;
 }
 .content .text {
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     flex: 1;
 }
 .content.checked .text {
