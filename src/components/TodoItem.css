@@ -4,29 +4,40 @@
     /* border-radius: 5px; */
     border-bottom: solid 1px black;
     /* border-top: solid 1px black; */
-
+    background-color: rgb(9,25,82);
     padding: 0.7rem;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 18rem;
 }
 .content {
     cursor: pointer;
-    flex: 1;
     display: flex;
     align-items: center;
+    flex: 1;
+    background-color:rgb(9,25,82);
 }
 /* svg는 우리가 가져온 체크박스 아이템  */
 .content svg {
     font-size: 1.5rem;
-    color: red;
 }
 .content .text {
     margin-left: 1rem;
     flex: 1;
+    background-color:rgb(9,25,82);
 }
 .content.checked .text {
-    color: rgb(94, 93, 93);
+    color: rgb(229, 221, 221);
     text-decoration: line-through;
     cursor: pointer;
     opacity: 0.6;
+}
+.circle {
+    color: rgb(56, 109, 225);
+}
+.checkbox {
+
+    color: rgb(216, 48, 246);
 }

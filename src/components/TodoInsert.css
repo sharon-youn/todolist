@@ -8,8 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: gray;
     opacity: 0.8;
+    background-color: white;
 }
 form {
     margin-left: 10%;
@@ -40,10 +40,10 @@ form > button {
     background: none;
     outline: none;
     border: none;
-    color: pink;
+    color:  rgb(58, 112, 229);
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -53,7 +53,7 @@ form > button {
 /* svg는 아이콘을 다 지칭함  */
 .rewrite > svg {
     padding-top: 20px;
-    color: green;
+    color: rgb(58, 112, 229);
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: 1.1rem;

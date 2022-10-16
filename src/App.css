@@ -1,5 +1,5 @@
-* {
-  background: #C9D4D6;
+body {
+  background: rgb(58,	79,	156	);
 }
 .plusbutton {
   position: fixed;
@@ -9,5 +9,10 @@
   width: 100px;
   height: 100px;
   cursor:pointer;
-  color: rgb(169, 40, 212);
+  color: rgb(216, 48, 246);
+  /* box-shadow: 
+  #FFFFFF 0 0 12px,
+  #A91079 0 0 25px,
+  #A91079 0 0 35px,
+  #A91079 0 0 45px; */
 }

@@ -1,5 +1,9 @@
 import React from 'react'
-import {GrCheckboxSelected,GrCheckbox} from 'react-icons/gr'
+import {GrCheckbox} from 'react-icons/gr'
+import { faCircle } from "@fortawesome/free-regular-svg-icons"; 
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"; 
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import './TodoItem.css'
 
 export default function TodoItem({todo, onCheckToggle, onInsertToggle, onChangeSelectedTodo}) {
@@ -10,11 +14,14 @@ export default function TodoItem({todo, onCheckToggle, onInsertToggle, onChangeS
      <div className={`content ${checked? 'checked' : ''}`}>
       {/* 체크박스 누를때 해체 생성 하는 방법  */}
         {checked ? 
-        <GrCheckboxSelected 
+        <FontAwesomeIcon icon={faCircleCheck} solid
+        className='circle'
         onClick={
           () => {onCheckToggle(id)}
         }
-        /> : <GrCheckbox
+        /> 
+        : 
+        <FontAwesomeIcon icon={faCircle}
         className='checkbox'
         onClick={
           () => {onCheckToggle(id)}

@@ -57,7 +57,7 @@ export default function TodoInsert({
           </div>
          ): (
           <button type="submit"> 
-        <FontAwesomeIcon icon={faCirclePlus} />
+        <FontAwesomeIcon icon={faCirclePlus}  />
           </button>
          )}
       
