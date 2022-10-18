@@ -100,7 +100,7 @@ useEffect(()=>{
 // 로딩 이미지 css 적용 전이라 Loading은 ready에서 false 기본값으로 해놨음 
   return  (
     ready ? 
-    <Loading className="loading"/>
+    <Loading/>
     :
   <Template todoLength={todos.length}>
     {/* todos를 써야하는 TodoList에 인자 받아오기 */}

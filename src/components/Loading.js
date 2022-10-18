@@ -3,7 +3,6 @@ import charactor from '../images/charactor.png';
 
 export default function Loading() {
   return (
-    <div className='charactor'>
     
       <img 
       className='charactor2'
@@ -14,6 +13,6 @@ export default function Loading() {
       
       />
  
-    </div>
+
   )
 }
