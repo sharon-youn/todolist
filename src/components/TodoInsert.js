@@ -1,11 +1,16 @@
 // create 기능 생성
 import React, { useEffect, useState } from 'react'
-import { faCirclePlus, faTrashCan, faPencil} from "@fortawesome/free-solid-svg-icons"; 
+import { faCircleXmark} from "@fortawesome/free-regular-svg-icons"; 
+import { faTrashCan,faPencil, faAngleUp} from "@fortawesome/free-solid-svg-icons"; 
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import './TodoInsert.css'
+
+// 할일을 팝업에 입력해서 추가하고 수정하고 삭제할 TodoInsert
+
 export default function TodoInsert({
   onInsertToggle, onInsertTodo, 
-  selectedTodo, onRemove, onUpdate}) {
+  selectedTodo, onRemove, onUpdate, onX}) {
     // 빈문자열 초기값으로 두기 -> input에 할일 적으면 생성되는 상태
     const [value, setValue] = useState("")
 
@@ -36,28 +41,40 @@ export default function TodoInsert({
     <div>
     <div className='background' onClick = {onInsertToggle}></div>
     <form onSubmit={selectedTodo ? () => {onUpdate(selectedTodo.id, value)} :onSubmit}> 
-        <input 
-         placeholder='please type'
+        {/* x버튼 눌렀을때 다시 기본화면으로  */}
+        <div className='xbox' onClick={()=>onX()}>
+        <FontAwesomeIcon icon={faCircleXmark} size="2x"/>
+        </div>
+        <textarea 
+         placeholder='Enter new Task'
          value={value} 
          onChange={onChange}>
+         </textarea>
 
-         </input>
          {selectedTodo ? (
           <div className='rewrite'>
-            <button
-            className='update'
-             onClick={() => {{onUpdate(selectedTodo.id, value)}}}
-            >수정</button>
-            {/* <FontAwesomeIcon icon={faPencil} 
-            onClick={() => {{onUpdate(selectedTodo.id, value)}}}/> */}
-            <button className='delete'
-            onClick={()=>{onRemove(selectedTodo.id)}}
-            >삭제</button>
-            {/* <FontAwesomeIcon icon={faTrashCan} onClick={()=>{onRemove(selectedTodo.id)}} /> */}
+     
+              <div className='update' 
+               onClick={() => 
+                {onUpdate(selectedTodo.id, value)}}>
+              <FontAwesomeIcon icon={faPencil} size="2x"/>
+              </div>
+              <div className='delete'
+              onClick={()=>
+                {onRemove(selectedTodo.id)}}
+              >
+              <FontAwesomeIcon icon={faTrashCan} size="2x"/>
+              </div>
+
+          
           </div>
          ): (
-          <button type="submit"> 
-        <FontAwesomeIcon icon={faCirclePlus}  />
+
+          <button className="newtask" type="submit"
+          > 
+           New task 
+           <FontAwesomeIcon className="angle" icon={faAngleUp} size="lg"/>
+           
           </button>
          )}
       

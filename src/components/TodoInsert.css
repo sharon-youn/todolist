@@ -1,3 +1,4 @@
+/* 기존 모달창 */
 .background {
     position: fixed;
     z-index: 980;
@@ -6,72 +7,100 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.8;
-    background-color: white;
-}
-form {
-    margin-left: 10%;
-    position: fixed;
-    top: 40%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0.8;
+
+
+}
+/* top:0을 써야 전체화면을 모달창으로 쓸 수 있구나..*/
+form {
+    top: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     z-index: 990;
-    width: 300px;
-    height: 150px;
+    width: 100vw;
+    height: 100vh;
     border-radius: 5px;
     box-shadow: 1px 2px 5px 1px black;
-    background: white;
+    background: rgb(9,25,82);
 }
-form > input {
+
+
+form > textarea {
     background: none;
     outline: none;
     border: none;
-    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    height: 100px;
     padding: 0.5rem;
-    font-size: 1.1rem;
-    line-height: 1.2;
+    font-size: 1.4rem;
+    color: white;
 }
 form > button {
-    padding-top: 20px;
     background: none;
     outline: none;
     border: none;
     color:  rgb(58, 112, 229);
-    padding-left: 1rem;
+    /* padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 2rem;
+    font-size: 2rem; */
     display: flex;
     align-items: center;
     cursor: pointer;
     /* 플러스버튼을 누르면 조금 멈췄다가 자연스럽게 사라짐  */
-    transition: 0.1s background ease-in;
+    transition: 0.3s background ease-in;
+}
+.rewrite {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
 }
 /* svg는 아이콘을 다 지칭함  */
-.rewrite > svg {
-    padding-top: 20px;
-    color: rgb(58, 112, 229);
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 1.1rem;
+
+.newtask {
+    /* border: 1px black solid; */
+    margin-top: 10px;
+    height: 50px;
+    width: 160px;
+    background-color: rgb(5, 117, 255);
+    color: white;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    bottom: 0;
+    margin-bottom: -30px;
+    margin-right: -140px;
+ 
+}
+.angle {
+    margin-left: 20px;
+}
+.xbox {
+    margin-top: -50px;
+    margin-left: 250px;
+    color: rgba(144, 161, 236, 1);
 }
 
 .update, .delete{
-    border: none;
-    background-color: pink;
     width: 80px;
     height: 35px;
     border-radius: 10px;
     margin-top: 15px;
     font-size: 1rem;
-  
-   
-}
+    text-align: center;
 
-.delete {
-    background-color: rgb(193, 188, 188);
-    margin-left: 40px;
+}
+.update{
+    margin-right: 100px;
+    color: rgba(217, 155, 255, 1);
+}
+.delete{
+    color: white;
 }

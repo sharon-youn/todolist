@@ -1,9 +1,7 @@
 .TodoItem {
     margin-left: auto;
     margin-right: auto;
-    /* border-radius: 5px; */
     border-bottom: solid 1px black;
-    /* border-top: solid 1px black; */
     background-color: rgb(9,25,82);
     padding: 0.7rem;
     display: flex;
@@ -12,6 +10,7 @@
     border-radius: 10px;
     width: 18rem;
 }
+/* TodoItem 자식요소 */
 .content {
     cursor: pointer;
     display: flex;

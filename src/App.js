@@ -1,10 +1,12 @@
 import './App.css';
 import Template from './components/Template'
 import TodoList from './components/TodoList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import TodoInsert from './components/TodoInsert';
+import Loading from "./components/Loading.js"
+
 // nextId가 계속 증가하려면 App 함수가 리렌더링 하지 않는 곳에 선언해야해서
 // 바깥에 선언
 
@@ -13,7 +15,10 @@ let nextId = 4;
 // id로 key값 주고 text에 입력값 checked 완료 미완료 
 const App = () => {
   const [selectedTodo, setSelectedTodo] = useState(null)
+  //로딩화면 true로 바꾸면 구현 가능!!
+  const[ready, setReady] = useState(false);
   const [insertToggle, setInsertToggle] = useState(false)
+  // 첫 화면에서 할일 목록을 보여줄 초기값을 객체형태의 배열로 설정
   const [todos, setTodos] = useState([
     {
       id:1,
@@ -22,11 +27,11 @@ const App = () => {
     },
     {
       id:2,
-      text: "텍스트를 클릭하면 수정,삭제 가능합니다.",
+      text: "글씨를 클릭해보세요",
       checked: false
     }, {
       id:3,
-      text: "할일을 다했으면 체크박스를 눌러보세요.",
+      text: "체크박스를 눌러보세요",
       checked: true
     },
   ])
@@ -77,14 +82,34 @@ const onUpdate = (id, text) => {
     {...todo, text}  // spread 연산자로 todo 객체의 모든 속성을 풀어주고 새로운 text 추가해서 다시 객체 안에 넣기
     : todo)) // 일치하지 않는 할일들은 그냥 냅두기
 }
+// x 버튼 누르면 화면으로 나가기
+const onX = (id, text) => {
+  onInsertToggle();
 
+}
+useEffect(()=>{        
+  //뒤의 1000 숫자는 1초를 뜻함     
+ //1초 뒤에 실행되는 코드들이 담겨 있는 함수     
+       setTimeout(()=>{         
+              //  setState(data)         
+               setReady(false)     
+        },3000)          
+
+},[]) 
+
+// 로딩 이미지 css 적용 전이라 Loading은 ready에서 false 기본값으로 해놨음 
   return  (
+    ready ? 
+    <Loading className="loading"/>
+    :
   <Template todoLength={todos.length}>
+    {/* todos를 써야하는 TodoList에 인자 받아오기 */}
     <TodoList 
     todos={todos} 
     onCheckToggle={onCheckToggle} 
     onInsertToggle={onInsertToggle}
-    onChangeSelectedTodo={onChangeSelectedTodo} />
+    onChangeSelectedTodo={onChangeSelectedTodo}
+     />
     <div className='plusbutton' onClick={onInsertToggle}>
     <FontAwesomeIcon icon={faCirclePlus} size="3x" />
     </div>
@@ -96,9 +121,11 @@ const onUpdate = (id, text) => {
     selectedTodo={selectedTodo}
     onRemove={onRemove}
     onUpdate={onUpdate}
+    onX={onX}
     />)}
-
     </Template>
+ 
+   
   )
 }
 
